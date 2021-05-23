@@ -10,7 +10,7 @@
 
 #include <string>
 #include <map>
-#include <filesystem>
+// #include <filesystem>
 #include <future>
 
 #include <vlcpp/vlc.hpp>
@@ -53,7 +53,7 @@ public:
 		Media* media = new Media();
 		media->id = id;
 		media->resource = path;
-		media->location = "file:///" + std::filesystem::temp_directory_path().u8string() + path;
+		media->location = "file:///tmp/" + path;
 		media->mediaType = "MediaType.asset";
 		if (parse) media->parse(timeout);
 		return media;
